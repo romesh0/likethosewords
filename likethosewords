@@ -1,0 +1,17 @@
+import re
+
+def extract_keywords(video_file):
+    # Open the video file and read the contents into a string
+    with open(video_file, 'r') as file:
+        contents = file.read()
+    
+    # Use regular expressions to search for the keywords in the string
+    matches = re.findall(r'\b(wifi|username|password)\b', contents, re.IGNORECASE)
+    
+    # Return a list of the keywords that were found
+    return matches
+
+# Example usage:
+video_file = 'my_video.mp4'
+keywords = extract_keywords(video_file)
+print(keywords)
